@@ -19,3 +19,9 @@ if (!visitas) {
 localStorage.setItem("visitas", visitas);
 
 document.getElementById("contador").innerText = visitas;
+
+fetch("header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  });
