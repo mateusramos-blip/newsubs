@@ -192,3 +192,23 @@ button:hover {
 .card p {
     margin: 0;
 }
+
+.voltar-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+.btn-voltar {
+    background: #1db818;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background: #28db73;
+}
