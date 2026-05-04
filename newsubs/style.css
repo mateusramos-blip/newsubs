@@ -1,11 +1,11 @@
-/* Reset básico */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo */
+/* BODY (mantido original) */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f4f6f8;
@@ -18,22 +18,52 @@ body {
     line-height: 1.6;
 }
 
-/* NAVBAR */
-nav {
-    background: #1e1e2f;
+/* ===== HEADER / TOPO ===== */
+.topo {
+    position: absolute;
+    top: 20px;          /* espaço do topo */
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;         /* não ocupa tudo */
+    max-width: 1200px;  /* limita em telas grandes */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     padding: 15px 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    background: rgba(30, 30, 47, 0.6);
+    backdrop-filter: blur(8px);
+
+    border-radius: 16px; /* 🔥 borda arredondada */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+/* LOGO / TÍTULO */
+.logo {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-right: 20px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    background: linear-gradient(90deg, #8fda72, #1db818);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-nav ul {
+/* NAVBAR */
+.topo nav ul {
     list-style: none;
     display: flex;
-    margin-left: auto; 
-    width: 300px;
     gap: 25px;
 }
 
-nav a {
+.topo nav {
+    margin-left: 20px;
+}
+
+.topo nav a {
     color: #ffffff;
     text-decoration: none;
     font-weight: 500;
@@ -42,7 +72,7 @@ nav a {
 }
 
 /* efeito underline animado */
-nav a::after {
+.topo nav a::after {
     content: "";
     position: absolute;
     width: 0%;
@@ -53,15 +83,39 @@ nav a::after {
     transition: 0.3s;
 }
 
-nav a:hover::after {
+.topo nav a:hover::after {
     width: 100%;
 }
 
-nav a:hover {
+.topo nav a:hover {
     color: #28db73;
 }
 
-/* CONTEÚDO */
+.topo:hover {
+    transform: translateX(-50%) scale(1.01);
+    transition: 0.3s;
+}
+
+.topo nav a.ativo {
+    color: #28db73;
+    pointer-events: none; /* ❌ não clicável */
+    cursor: default;
+}
+
+/* underline sempre visível no ativo */
+.topo nav a.ativo::after {
+    width: 100%;
+}
+
+/* ===== CONTEÚDO ===== */
+.conteudo {
+    padding: 40px 20px;
+    max-width: 1200px;
+    padding-top: 140px;
+    margin: auto;
+}
+
+/* TITULOS */
 h1 {
     font-size: 2.8rem;
     margin: 40px 20px 10px;
@@ -78,7 +132,7 @@ p {
     color: #1db818;
 }
 
-/* LINKS GERAIS (fora do menu) */
+/* LINKS GERAIS */
 a {
     color: #1db818;
     text-decoration: none;
@@ -90,7 +144,7 @@ a:hover {
     color: #28db73;
 }
 
-/* BOTÕES (pra usar depois no contato) */
+/* BOTÕES */
 button {
     background: #1db818;
     color: rgb(255, 255, 255);
@@ -106,6 +160,7 @@ button:hover {
     background: #28db73;
 }
 
+/* ===== CARDS ===== */
 .cards {
     display: flex;
     gap: 20px;
@@ -136,4 +191,9 @@ button:hover {
 
 .card p {
     margin: 0;
+}
+
+.logo {
+    padding-right: 30px;
+    border-right: 2px solid rgba(255,255,255,0.3);
 }
