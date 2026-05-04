@@ -1,27 +1,200 @@
-const titulo = document.querySelector("h1");
-
-titulo.addEventListener("click", () => {
-  titulo.textContent = "Você clicou no título!";
-});
-
-console.log("O site carregou com sucesso!");
-
-alert("Bem-vindo ao meu site!");
-
-let visitas = localStorage.getItem("visitas");
-
-if (!visitas) {
-    visitas = 1;
-} else {
-    visitas = parseInt(visitas) + 1;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-localStorage.setItem("visitas", visitas);
+/* BODY (mantido original) */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8;
+    background-image: url('https://resende.rj.gov.br/img/noticias/1640277550679.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #28db73;
+    line-height: 1.6;
+}
 
-document.getElementById("contador").innerText = visitas;
+/* ===== HEADER / TOPO ===== */
+.topo {
+    position: absolute;
+    top: 20px;          /* espaço do topo */
+    left: 50%;
+    transform: translateX(-50%);
 
-fetch("header.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("header").innerHTML = data;
-  });
+    width: 90%;         /* não ocupa tudo */
+    max-width: 1200px;  /* limita em telas grandes */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 30px;
+
+    background: rgba(30, 30, 47, 0.6);
+    backdrop-filter: blur(8px);
+
+    border-radius: 16px; /* 🔥 borda arredondada */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+/* LOGO / TÍTULO */
+.logo {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-right: 20px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    background: linear-gradient(90deg, #8fda72, #1db818);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* NAVBAR */
+.topo nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.topo nav {
+    margin-left: 20px;
+}
+
+.topo nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* efeito underline animado */
+.topo nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #1db818;
+    transition: 0.3s;
+}
+
+.topo nav a:hover::after {
+    width: 100%;
+}
+
+.topo nav a:hover {
+    color: #28db73;
+}
+
+.topo:hover {
+    transform: translateX(-50%) scale(1.01);
+    transition: 0.3s;
+}
+
+.topo nav a.ativo {
+    color: #28db73;
+    pointer-events: none; /* ❌ não clicável */
+    cursor: default;
+}
+
+/* underline sempre visível no ativo */
+.topo nav a.ativo::after {
+    width: 100%;
+}
+
+/* ===== CONTEÚDO ===== */
+.conteudo {
+    padding: 40px 20px;
+    max-width: 1200px;
+    padding-top: 140px;
+    margin: auto;
+}
+
+/* TITULOS */
+h1 {
+    font-size: 2.8rem;
+    margin: 40px 20px 10px;
+    font-weight: 600;
+
+    background: linear-gradient(90deg, #8fda72, #1db818);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    margin: 0 20px 20px;
+    font-size: 1.1rem;
+    color: #1db818;
+}
+
+/* LINKS GERAIS */
+a {
+    color: #1db818;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #28db73;
+}
+
+/* BOTÕES */
+button {
+    background: #1db818;
+    color: rgb(255, 255, 255);
+    float: right;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #28db73;
+}
+
+/* ===== CARDS ===== */
+.cards {
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1 1 250px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+/* efeito ao passar o mouse */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    color: #1e1e2f;
+}
+
+.card p {
+    margin: 0;
+}
+
+.logo {
+    padding-right: 30px;
+    border-right: 2px solid rgba(255,255,255,0.3);
+}
+/* TESTE GIT */
