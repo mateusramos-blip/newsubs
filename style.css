@@ -195,8 +195,8 @@ button:hover {
 
 .voltar-container {
     display: flex;
-    justify-content: flex-end;
-    margin: 20px;
+    justify-content: flex-end; /* Alinha o botão totalmente à direita */
+    padding: 20px; /* Ajuste o espaçamento como preferir */
 }
 
 .btn-voltar {
