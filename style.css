@@ -14,7 +14,7 @@ body {
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    color: #075a04;
+    color: #28db73;
     line-height: 1.6;
 }
 
@@ -28,6 +28,8 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
+    margin-left: auto; 
+    width: 300px;
     gap: 25px;
 }
 
@@ -47,7 +49,7 @@ nav a::after {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #4da6ff;
+    background-color: #1db818;
     transition: 0.3s;
 }
 
@@ -56,7 +58,7 @@ nav a:hover::after {
 }
 
 nav a:hover {
-    color: #4da6ff;
+    color: #28db73;
 }
 
 /* CONTEÚDO */
@@ -65,7 +67,7 @@ h1 {
     margin: 40px 20px 10px;
     font-weight: 600;
 
-    background: linear-gradient(90deg, #8fda72, #31c52c);
+    background: linear-gradient(90deg, #8fda72, #1db818);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -73,25 +75,26 @@ h1 {
 p {
     margin: 0 20px 20px;
     font-size: 1.1rem;
-    color: #1ddf16;
+    color: #1db818;
 }
 
 /* LINKS GERAIS (fora do menu) */
 a {
-    color: #0077cc;
+    color: #1db818;
     text-decoration: none;
     font-weight: 500;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #005fa3;
+    color: #28db73;
 }
 
 /* BOTÕES (pra usar depois no contato) */
 button {
-    background: #4da6ff;
-    color: white;
+    background: #1db818;
+    color: rgb(255, 255, 255);
+    float: right;
     border: none;
     padding: 10px 18px;
     border-radius: 6px;
@@ -100,7 +103,7 @@ button {
 }
 
 button:hover {
-    background: #2d8ae0;
+    background: #28db73;
 }
 
 .cards {
