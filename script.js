@@ -73,12 +73,14 @@ Posso te ajudar com algumas informações:
   // ===== ENTER PRA ENVIAR =====
   const inputCampo = document.getElementById("input");
 
-  if (inputCampo) {
-    inputCampo.addEventListener("keypress", function (event) {
-      if (event.key === "Enter") {
-        responder();
-      }
-    });
-  }
+const inputCampo = document.getElementById("input");
+
+if (inputCampo && typeof responder === "function") {
+  inputCampo.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      responder();
+    }
+  });
+}
 
 });
