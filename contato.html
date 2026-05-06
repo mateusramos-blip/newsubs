@@ -6,6 +6,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://i.imgur.com/iHEQJsi.png">
     <title>Contato</title>
+          <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS8SQFFDZ2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HS8SQFFDZ2');
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,13 +48,16 @@
 
         <div class="card">
             <h2>Chat</h2>
-            <p>Possivel chatbot não prometo nada.</p>
+            <p>Inicie a conversando dando um "Oi" ou um "Olá"</p>
+            <div id="chatbox"></div>
+            <input type="text" id="input" placeholder="Digite algo..." />
+                <button onclick="responder()">Enviar</button>
         </div>
     </div>
         <div class="voltar-container">
     <button onclick="location.href='index.html';">Voltar ao Inicio</button>
     </div>
 </main>
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
