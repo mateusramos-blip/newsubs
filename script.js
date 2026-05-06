@@ -1,29 +1,29 @@
-// ===== TÍTULO =====
+// Seleciona o título
 const titulo = document.querySelector("h1");
 
 if (titulo) {
-  titulo.addEventListener("click", () => {
-    titulo.textContent = "Você clicou no título!";
-  });
+    titulo.addEventListener("click", () => {
+        titulo.textContent = "Você clicou no título!";
+    });
 }
 
-// ===== CONSOLE =====
+// Mensagem no console
 console.log("O site carregou com sucesso!");
 
-// ===== CONTADOR (local) =====
+// Contador de visitas
 let visitas = localStorage.getItem("visitas");
 
 if (!visitas) {
-  visitas = 1;
+    visitas = 1;
 } else {
-  visitas = parseInt(visitas) + 1;
+    visitas = parseInt(visitas) + 1;
 }
 
 localStorage.setItem("visitas", visitas);
 
-// ===== MOSTRAR CONTADOR =====
+// Exibir na tela (se existir elemento)
 const contador = document.getElementById("contador");
 
 if (contador) {
-  contador.innerText = visitas;
+    contador.innerText = visitas;
 }

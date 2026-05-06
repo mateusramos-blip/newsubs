@@ -59,58 +59,49 @@
     </div>
 </main>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
 
-  function responder() {
-    let inputEl = document.getElementById("input");
-    let chat = document.getElementById("chatbox");
+// Codigo pro Chatbot
+function responder() {
+  let inputEl = document.getElementById("input");
+  let chat = document.getElementById("chatbox");
 
-    if (!inputEl || !chat) return;
+  let input = inputEl.value.toLowerCase().trim();
 
-    let input = inputEl.value.toLowerCase().trim();
-    if (input === "") return;
+  if (input === "") return; // evita enviar vazio
 
-    chat.innerHTML += `<p class='user'>Você: ${input}</p>`;
+  chat.innerHTML += "<p class='user'>Você: " + input + "</p>";
 
-    let resposta = "Não entendi 😅";
+  let resposta = "Não entendi 😅";
 
-    if (input.includes("oi") || input.includes("olá") || input.includes("ola")) {
-      resposta = `Olá! 👋
+if (input.includes("oi") || input.includes("olá") || input.includes("ola") || input.includes("Oi") || input.includes("Olá") || input.includes("Ola")) {
+  resposta = `Olá! 👋
 
-Posso te ajudar com:
+      Posso te ajudar com algumas informações:
 
-👉 "horário"  
-👉 "preço"  
-👉 "contato"`;
-    } else if (input.includes("horário") || input.includes("horario")) {
-      resposta = "Funcionamos das 8h às 18h.";
-    } else if (input.includes("preço") || input.includes("preco")) {
-      resposta = "Os preços variam, me diga o produto 😉";
-    } else if (input.includes("contato")) {
-      resposta = "Nosso WhatsApp é (xx) xxxx-xxxx";
-    }
-
-    chat.innerHTML += `<p class='bot'>Bot: ${resposta}</p>`;
-
-    inputEl.value = "";
-    chat.scrollTop = chat.scrollHeight;
+      👉 Digite "horário" para ver quando abrimos  
+      👉 Digite "preço" para saber valores  
+      👉 Digite "contato" para falar com a gente`;
+  } else if (input.includes("horário") || input.includes("horario")) {
+    resposta = "Funcionamos das 8h às 18h.";
+  } else if (input.includes("preço") || input.includes("preco")) {
+    resposta = "Os preços variam, me diga o produto 😉";
+  } else if (input.includes("contato")) {
+    resposta = "Nosso WhatsApp é (xx) xxxx-xxxx";
   }
 
-  // deixa botão funcionar
-  window.responder = responder;
+  chat.innerHTML += "<p class='bot'>Bot: " + resposta + "</p>";
 
-  // ENTER
-  const inputCampo = document.getElementById("input");
+  inputEl.value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
 
-  if (inputCampo) {
-    inputCampo.addEventListener("keypress", function (event) {
-      if (event.key === "Enter") {
-        responder();
-      }
-    });
+// Enviar com ENTER
+document.getElementById("input").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    responder();
   }
-
 });
+
 </script>
 </body>
 </html>
