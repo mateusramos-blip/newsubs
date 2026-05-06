@@ -58,6 +58,59 @@
     <button onclick="location.href='index.html';">Voltar ao Inicio</button>
     </div>
 </main>
-<script src="script.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+  function responder() {
+    let inputEl = document.getElementById("input");
+    let chat = document.getElementById("chatbox");
+
+    if (!inputEl || !chat) return;
+
+    let input = inputEl.value.toLowerCase().trim();
+    if (input === "") return;
+
+    chat.innerHTML += `<p class='user'>Você: ${input}</p>`;
+
+    let resposta = "Não entendi 😅";
+
+    if (input.includes("oi") || input.includes("olá") || input.includes("ola")) {
+      resposta = `Olá! 👋
+
+Posso te ajudar com:
+
+👉 "horário"  
+👉 "preço"  
+👉 "contato"`;
+    } else if (input.includes("horário") || input.includes("horario")) {
+      resposta = "Funcionamos das 8h às 18h.";
+    } else if (input.includes("preço") || input.includes("preco")) {
+      resposta = "Os preços variam, me diga o produto 😉";
+    } else if (input.includes("contato")) {
+      resposta = "Nosso WhatsApp é (xx) xxxx-xxxx";
+    }
+
+    chat.innerHTML += `<p class='bot'>Bot: ${resposta}</p>`;
+
+    inputEl.value = "";
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  // deixa botão funcionar
+  window.responder = responder;
+
+  // ENTER
+  const inputCampo = document.getElementById("input");
+
+  if (inputCampo) {
+    inputCampo.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        responder();
+      }
+    });
+  }
+
+});
+</script>
 </body>
 </html>
