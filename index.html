@@ -27,7 +27,25 @@
         <li><a href="contato.html">Contato</a></li>
     </ul>
     </nav>
-    <div class="xp-container">    <div class="xp-bar"></div>
+        <button id="loginBtn">
+        Entrar com Google
+        </button>
+<div class="user-info" id="userInfo">
+    <div class="user-text">
+        <h3 id="userName">Visitante</h3>
+        <p id="userLevel">Level 1</p>
+        <div class="xp-container">
+            <div class="xp-fill" id="xpBar"></div>
+            <span class="xp-text" id="xpText">
+                0 / 100 XP
+            </span>
+        </div>
+    </div>
+        <button id="logoutBtn">
+            Sair
+        </button>
+</div>
+
     </header>
         <main class="conteudo">
             <h1>Além da Substância</h1>
@@ -39,6 +57,9 @@
 
             <p>Neste espaço, você encontrará conteúdos educativos, guias de rotina e materiais em vídeo pensados para tornar o processo de reabilitação mais acessível, transparente e humano.</p>
         </main>
+        <button id="xpTestBtn">
+            Ganhar 10 XP
+        </button>
 
          <div class="cards">
             <div class="card">
@@ -58,5 +79,6 @@
     </div>
         </main>
     <script src="script.js"></script>
+    <script type="module" src="aps.js"></script>
 </body>
 </html>
