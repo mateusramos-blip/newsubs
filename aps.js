@@ -42,7 +42,7 @@ const xpTestBtn = document.getElementById("xpTestBtn");
 
 
 // ======================================
-// ÁREA DO USUÁRIO
+// ÁREA USUÁRIO
 // ======================================
 
 const userInfo = document.getElementById("userInfo");
@@ -95,7 +95,7 @@ logoutBtn.addEventListener("click", async () => {
 
 
 // ======================================
-// BOTÃO TESTE XP
+// GANHAR XP
 // ======================================
 
 xpTestBtn.addEventListener("click", async () => {
@@ -104,7 +104,7 @@ xpTestBtn.addEventListener("click", async () => {
 
     try {
 
-      // ADICIONA XP
+      // ADICIONA 10 XP
 
       await addXP(currentUser.uid, 10);
 
@@ -131,31 +131,25 @@ async function atualizarUsuario(user) {
 
   try {
 
-    // REFERÊNCIA DO USUÁRIO
+    // REFERÊNCIA FIRESTORE
 
-    const userRef =
-    doc(db, "users", user.uid);
+    const userRef = doc(db, "users", user.uid);
 
     // BUSCA DADOS
 
-    const userSnap =
-    await getDoc(userRef);
+    const userSnap = await getDoc(userRef);
 
     // SE EXISTIR
 
     if (userSnap.exists()) {
 
-      const data =
-      userSnap.data();
-
+      const data = userSnap.data();
 
       // ======================================
       // NOME
       // ======================================
 
-      userName.textContent =
-      data.nome;
-
+      userName.textContent = data.nome;
 
       // ======================================
       // LEVEL
@@ -164,35 +158,37 @@ async function atualizarUsuario(user) {
       userLevel.textContent =
       `Level ${data.level}`;
 
-
       // ======================================
-      // SISTEMA XP
-      // ======================================
-
       // XP TOTAL
+      // ======================================
 
-      const xpTotal =
-      data.xp;
+      const xpTotal = data.xp;
 
+      // ======================================
       // LEVEL ATUAL
+      // ======================================
 
-      const levelAtual =
-      data.level;
+      const levelAtual = data.level;
 
-      // XP NECESSÁRIO POR LEVEL
+      // ======================================
+      // XP NECESSÁRIO
+      // ======================================
 
       const xpNecessario = 100;
 
+      // ======================================
       // XP INICIAL DO LEVEL
+      // ======================================
 
       const xpInicioLevel =
       (levelAtual - 1) * 100;
 
-      // XP ATUAL NO LEVEL
+      // ======================================
+      // XP ATUAL DO LEVEL
+      // ======================================
 
       const xpAtual =
       xpTotal - xpInicioLevel;
-
 
       // ======================================
       // TEXTO DA BARRA
@@ -200,7 +196,6 @@ async function atualizarUsuario(user) {
 
       xpText.textContent =
       `${xpAtual} / ${xpNecessario} XP`;
-
 
       // ======================================
       // PORCENTAGEM
@@ -211,7 +206,6 @@ async function atualizarUsuario(user) {
 
       const porcentagemFinal =
       Math.min(porcentagem, 100);
-
 
       // ======================================
       // ATUALIZA BARRA
@@ -224,10 +218,7 @@ async function atualizarUsuario(user) {
 
   } catch (error) {
 
-    console.error(
-      "Erro ao atualizar usuário:",
-      error
-    );
+    console.error("Erro ao atualizar usuário:", error);
 
   }
 
@@ -241,7 +232,7 @@ async function atualizarUsuario(user) {
 onAuthStateChanged(auth, async (user) => {
 
   // ======================================
-  // USUÁRIO LOGADO
+  // LOGADO
   // ======================================
 
   if (user) {
@@ -252,24 +243,19 @@ onAuthStateChanged(auth, async (user) => {
 
     // ESCONDE LOGIN
 
-    loginBtn.style.display =
-    "none";
+    loginBtn.style.display = "none";
 
     // MOSTRA USUÁRIO
 
-    userInfo.style.display =
-    "flex";
+    userInfo.style.display = "flex";
 
     // MOSTRA LOGOUT
 
-    logoutBtn.style.display =
-    "block";
+    logoutBtn.style.display = "block";
 
     // MOSTRA BOTÃO XP
 
-    xpTestBtn.style.display =
-    "block";
-
+    xpTestBtn.style.display = "block";
 
     // ATUALIZA INTERFACE
 
@@ -278,7 +264,7 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   // ======================================
-  // USUÁRIO DESLOGADO
+  // DESLOGADO
   // ======================================
 
   else {
@@ -289,23 +275,19 @@ onAuthStateChanged(auth, async (user) => {
 
     // MOSTRA LOGIN
 
-    loginBtn.style.display =
-    "block";
+    loginBtn.style.display = "block";
 
     // ESCONDE USUÁRIO
 
-    userInfo.style.display =
-    "none";
+    userInfo.style.display = "none";
 
     // ESCONDE LOGOUT
 
-    logoutBtn.style.display =
-    "none";
+    logoutBtn.style.display = "none";
 
     // ESCONDE BOTÃO XP
 
-    xpTestBtn.style.display =
-    "none";
+    xpTestBtn.style.display = "none";
 
   }
 
